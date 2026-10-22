@@ -1,0 +1,39 @@
+# KI-Betriebssystem – was NICHT versioniert wird
+# Versioniert werden Texte, Skills, Vorlagen und Code. Medien und Kundendaten bleiben lokal.
+
+# --- System ---
+.DS_Store
+node_modules/
+*.bak
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+**/deploy/*.conf
+!**/deploy/*.conf.example
+
+# --- Website-Code hat ein eigenes Repo ---
+Website/site/
+
+# --- Medien (zu groß fürs Repo) ---
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.heic
+*.gif
+*.mp4
+*.mov
+*.pdf
+# Logo und Marken-Referenzen dürfen ins Repo
+!Business/marke/logo.*
+!Business/marke/referenzen/*
+
+# --- Personenbezogene Daten (DSGVO) ---
+Kunden/privat/
+Dashboard/dashboard.html
+Dashboard/daten/*
+!Dashboard/daten/.gitkeep
+*.sql

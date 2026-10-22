@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITEL}} · Dashboard</title>
+<style>
+  /* Neutrales Grunddesign. Im Setup ersetzt Impeccable diese Tokens und Stile
+     nach DESIGN.md. Platzhalter {{…}} und data-Attribute bleiben unverändert. */
+  :root {
+    --bg: #f6f5f2;
+    --panel: #ffffff;
+    --text: #1d1c1a;
+    --text-leise: #6b6862;
+    --linie: #e4e1db;
+    --akzent: #2f4a3a;
+    --akzent-text: #ffffff;
+    --offen: #f3e3b5;
+    --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius: 10px;
+    --abstand: 24px;
+    --menue-breite: 232px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 var(--font); }
+  a { color: var(--akzent); }
+  code { font-size: .9em; background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+
+  .rahmen { display: grid; grid-template-columns: var(--menue-breite) 1fr; min-height: 100vh; }
+  .menue { position: sticky; top: 0; height: 100vh; padding: var(--abstand) 16px; border-right: 1px solid var(--linie); background: var(--panel); display: flex; flex-direction: column; gap: 32px; }
+  .marke { padding: 0 8px; }
+  .logo { display: block; max-width: 100%; max-height: 48px; }
+  .wortmarke { font-weight: 650; font-size: 17px; letter-spacing: .01em; }
+  .menue nav { display: flex; flex-direction: column; gap: 2px; }
+  .menue button { all: unset; cursor: pointer; padding: 9px 12px; border-radius: 8px; color: var(--text-leise); }
+  .menue button:hover { color: var(--text); background: var(--bg); }
+  .menue button[aria-current="page"] { color: var(--akzent-text); background: var(--akzent); }
+  .menue .unter { margin: 2px 0 6px 12px; display: none; flex-direction: column; }
+  .menue .unter a { padding: 5px 12px; font-size: 14px; color: var(--text-leise); text-decoration: none; }
+  .menue .unter a:hover { color: var(--text); }
+  .menue button[aria-current="page"] + .unter { display: flex; }
+  .menue .fuss { margin-top: auto; padding: 0 8px; font-size: 12px; color: var(--text-leise); }
+
+  main { padding: calc(var(--abstand) * 1.5) var(--abstand); max-width: 1120px; min-width: 0; }
+  main h1 { margin: 0 0 var(--abstand); font-size: 26px; font-weight: 650; }
+  [data-seite][hidden] { display: none; }
+  .raster { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand); }
+  .karte { background: var(--panel); border: 1px solid var(--linie); border-radius: var(--radius); padding: var(--abstand); min-width: 0; }
+  .karte.breit { grid-column: 1 / -1; }
+  .karte > h2 { margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-leise); }
+  .karte h3 { margin: 20px 0 6px; font-size: 17px; }
+  .karte h4, .karte h5 { margin: 16px 0 4px; font-size: 15px; }
+  .karte ul, .karte ol { padding-left: 20px; margin: 6px 0; }
+  .karte ul.check { list-style: none; padding-left: 0; }
+  .aufgabe { padding: 8px 0; border-bottom: 1px solid var(--linie); }
+  .aufgabe:last-child { border-bottom: 0; }
+  .aufgabe.erledigt { color: var(--text-leise); text-decoration: line-through; }
+  .zahl { margin: 0 0 8px; font-size: 32px; font-weight: 650; }
+  .offen-liste { list-style: none; padding-left: 0 !important; }
+  .offen-liste li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--linie); }
+  .offen-liste li.mehr { display: block; color: var(--text-leise); font-size: 13px; border-bottom: 0; }
+  .quelle { font-size: 12px; line-height: 2; color: var(--text-leise); }
+  mark.offen { background: var(--offen); padding: 0 4px; border-radius: 3px; }
+  .stand, .leer { color: var(--text-leise); font-size: 13px; }
+  blockquote { margin: 8px 0; padding-left: 12px; border-left: 3px solid var(--linie); color: var(--text-leise); }
+  .tabelle { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--linie); vertical-align: top; }
+  th { font-weight: 600; color: var(--text-leise); }
+  .wissen section { scroll-margin-top: var(--abstand); }
+
+  @media (max-width: 820px) {
+    .rahmen { grid-template-columns: minmax(0, 1fr); }
+    .menue { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; border-right: 0; border-bottom: 1px solid var(--linie); }
+    .menue nav { flex-direction: row; }
+    .menue .unter, .menue .fuss { display: none !important; }
+    .raster { grid-template-columns: minmax(0, 1fr); }
+    .offen-liste li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    main { padding: var(--abstand) 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="rahmen">
+  <aside class="menue">
+    <div class="marke">{{LOGO}}</div>
+    <nav aria-label="Bereiche">
+      <button type="button" data-reiter="uebersicht" aria-current="page">Übersicht</button>
+      <button type="button" data-reiter="wissen">Wissen</button>
+      <div class="unter">
+        <a href="#zielgruppen">Zielgruppen</a>
+        <a href="#angebote">Produkte und Preise</a>
+        <a href="#positionierung">Positionierung</a>
+        <a href="#marke">Marke</a>
+      </div>
+    </nav>
+    <p class="fuss">Stand {{STAND}}<br>Neu bauen: /dashboard</p>
+  </aside>
+
+  <main>
+    <div data-seite="uebersicht">
+      <h1>Übersicht</h1>
+      <div class="raster">
+        <section class="karte"><h2>Aktiv</h2>{{AKTIV}}</section>
+        <section class="karte"><h2>Offene Punkte</h2>{{OFFEN}}</section>
+        <section class="karte breit"><h2>Jahresziele</h2>{{ZIELE}}</section>
+        <section class="karte breit"><h2>Zuletzt erledigt</h2>{{VERLAUF}}</section>
+      </div>
+    </div>
+
+    <div data-seite="wissen" class="wissen" hidden>
+      <h1>Wissen</h1>
+      <div class="raster">
+        <section class="karte breit" id="zielgruppen"><h2>Zielgruppen</h2>{{WISSEN_ZIELGRUPPEN}}</section>
+        <section class="karte breit" id="angebote"><h2>Produkte und Preise</h2>{{WISSEN_ANGEBOTE}}</section>
+        <section class="karte breit" id="positionierung"><h2>Positionierung</h2>{{WISSEN_POSITIONIERUNG}}</section>
+        <section class="karte breit" id="marke"><h2>Marke</h2>{{WISSEN_MARKE}}</section>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+  const knoepfe = document.querySelectorAll("[data-reiter]");
+  const seiten = document.querySelectorAll("[data-seite]");
+  function zeige(id) {
+    knoepfe.forEach(k => k.dataset.reiter === id ? k.setAttribute("aria-current", "page") : k.removeAttribute("aria-current"));
+    seiten.forEach(s => s.hidden = s.dataset.seite !== id);
+  }
+  knoepfe.forEach(k => k.addEventListener("click", () => zeige(k.dataset.reiter)));
+  document.querySelectorAll(".unter a").forEach(a => a.addEventListener("click", () => zeige("wissen")));
+  const ziel = location.hash && document.querySelector(`[data-seite="wissen"] ${location.hash}`);
+  if (ziel) { zeige("wissen"); ziel.scrollIntoView(); }
+</script>
+</body>
+</html>
