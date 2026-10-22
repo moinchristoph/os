@@ -4,74 +4,93 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITEL}} · Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap">
 <style>
-  /* Neutrales Grunddesign. Im Setup ersetzt Impeccable diese Tokens und Stile
-     nach DESIGN.md. Platzhalter {{…}} und data-Attribute bleiben unverändert. */
+  /* Grunddesign der Vorlage. Im Setup ersetzt Impeccable diese Tokens und Stile
+     nach DESIGN.md. Platzhalter {{…}} und data-Attribute bleiben unverändert.
+     Eine Schrift, keine Akzentfarbe, Hover nur über Farbe, keine Schatten. */
   :root {
-    --bg: #f6f5f2;
-    --panel: #ffffff;
-    --text: #1d1c1a;
-    --text-leise: #6b6862;
-    --linie: #e4e1db;
-    --akzent: #2f4a3a;
-    --akzent-text: #ffffff;
-    --offen: #f3e3b5;
-    --font: system-ui, -apple-system, "Segoe UI", sans-serif;
-    --radius: 10px;
+    --bg: #FFFFFF;
+    --panel: #FFFFFF;
+    --feld: #EAEAE0;
+    --text: #1E1E1A;
+    --ueberschrift: #213529;
+    --text-leise: #5C5F55;
+    --linie: #D8D8CC;
+    --akzent: #22362A;
+    --akzent-text: #FFFFFF;
+    --offen: #EFE6CC;
+    --offen-text: #7A5B12;
+    --font: "Albert Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --radius: 4px;
     --abstand: 24px;
     --menue-breite: 232px;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1E1E1A; --panel: #24241F; --feld: #2A2A26; --text: #EAEAE0; --ueberschrift: #EAEAE0;
+      --text-leise: #A3A599; --linie: #3A3A34; --akzent: #D6DCCF; --akzent-text: #1E1E1A;
+      --offen: #3D3522; --offen-text: #E3C77F;
+      color-scheme: dark;
+    }
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 var(--font); }
-  a { color: var(--akzent); }
-  code { font-size: .9em; background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, h5 { color: var(--ueberschrift); }
+  a { color: var(--akzent); text-underline-offset: 2px; }
+  ::selection { background: var(--feld); color: var(--text); }
+  html { scrollbar-color: var(--linie) transparent; }
+  code { font-size: .9em; background: var(--feld); padding: 1px 5px; border-radius: 3px; }
 
   .rahmen { display: grid; grid-template-columns: var(--menue-breite) 1fr; min-height: 100vh; }
-  .menue { position: sticky; top: 0; height: 100vh; padding: var(--abstand) 16px; border-right: 1px solid var(--linie); background: var(--panel); display: flex; flex-direction: column; gap: 32px; }
-  .marke { padding: 0 8px; }
+  .menue { position: sticky; top: 0; height: 100vh; padding: var(--abstand) 16px; background: var(--feld); display: flex; flex-direction: column; gap: 32px; }
+  .marke { padding: 0 12px; }
   .logo { display: block; max-width: 100%; max-height: 48px; }
-  .wortmarke { font-weight: 650; font-size: 17px; letter-spacing: .01em; }
+  .wortmarke { font-weight: 500; font-size: 17px; letter-spacing: .08em; text-transform: uppercase; color: var(--ueberschrift); }
   .menue nav { display: flex; flex-direction: column; gap: 2px; }
-  .menue button { all: unset; cursor: pointer; padding: 9px 12px; border-radius: 8px; color: var(--text-leise); }
-  .menue button:hover { color: var(--text); background: var(--bg); }
+  .menue button { all: unset; cursor: pointer; padding: 9px 12px; border-radius: var(--radius); color: var(--text-leise); }
+  .menue button:hover { color: var(--text); }
+  .menue button:focus-visible, .menue a:focus-visible { outline: 2px solid var(--akzent); outline-offset: 2px; }
   .menue button[aria-current="page"] { color: var(--akzent-text); background: var(--akzent); }
   .menue .unter { margin: 2px 0 6px 12px; display: none; flex-direction: column; }
   .menue .unter a { padding: 5px 12px; font-size: 14px; color: var(--text-leise); text-decoration: none; }
   .menue .unter a:hover { color: var(--text); }
+  .karte a:focus-visible { outline: 2px solid var(--akzent); outline-offset: 2px; border-radius: 2px; }
   .menue button[aria-current="page"] + .unter { display: flex; }
   .menue .fuss { margin-top: auto; padding: 0 8px; font-size: 12px; color: var(--text-leise); }
 
   main { padding: calc(var(--abstand) * 1.5) var(--abstand); max-width: 1120px; min-width: 0; }
-  main h1 { margin: 0 0 var(--abstand); font-size: 26px; font-weight: 650; }
+  main h1 { margin: 0 0 var(--abstand); font-size: 30px; font-weight: 400; letter-spacing: -0.02em; }
   [data-seite][hidden] { display: none; }
-  .raster { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand); }
+  .raster { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand); align-items: start; }
   .karte { background: var(--panel); border: 1px solid var(--linie); border-radius: var(--radius); padding: var(--abstand); min-width: 0; }
   .karte.breit { grid-column: 1 / -1; }
-  .karte > h2 { margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-leise); }
-  .karte h3 { margin: 20px 0 6px; font-size: 17px; }
-  .karte h4, .karte h5 { margin: 16px 0 4px; font-size: 15px; }
+  .karte > h2 { margin: 0 0 16px; font-size: 19px; font-weight: 400; letter-spacing: -0.01em; }
+  .karte h3 { margin: 20px 0 6px; font-size: 18px; font-weight: 500; }
+  .karte h4, .karte h5 { margin: 16px 0 4px; font-size: 15px; font-weight: 600; }
   .karte ul, .karte ol { padding-left: 20px; margin: 6px 0; }
   .karte ul.check { list-style: none; padding-left: 0; }
   .aufgabe { padding: 8px 0; border-bottom: 1px solid var(--linie); }
   .aufgabe:last-child { border-bottom: 0; }
   .aufgabe.erledigt { color: var(--text-leise); text-decoration: line-through; }
-  .zahl { margin: 0 0 8px; font-size: 32px; font-weight: 650; }
+  .zahl { margin: -4px 0 8px; font-size: 32px; font-weight: 400; letter-spacing: -0.02em; color: var(--ueberschrift); font-variant-numeric: tabular-nums; }
   .offen-liste { list-style: none; padding-left: 0 !important; }
   .offen-liste li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--linie); }
   .offen-liste li.mehr { display: block; color: var(--text-leise); font-size: 13px; border-bottom: 0; }
   .quelle { font-size: 12px; line-height: 2; color: var(--text-leise); }
-  mark.offen { background: var(--offen); padding: 0 4px; border-radius: 3px; }
+  mark.offen { background: var(--offen); color: var(--offen-text); padding: 0 4px; border-radius: 3px; font-size: .85em; font-weight: 600; }
   .stand, .leer { color: var(--text-leise); font-size: 13px; }
-  blockquote { margin: 8px 0; padding-left: 12px; border-left: 3px solid var(--linie); color: var(--text-leise); }
+  blockquote { margin: 8px 0; padding-left: 12px; border-left: 1px solid var(--linie); color: var(--text-leise); }
   .tabelle { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--linie); vertical-align: top; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--linie); vertical-align: top; font-variant-numeric: tabular-nums; }
   th { font-weight: 600; color: var(--text-leise); }
   .wissen section { scroll-margin-top: var(--abstand); }
 
   @media (max-width: 820px) {
     .rahmen { grid-template-columns: minmax(0, 1fr); }
-    .menue { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; border-right: 0; border-bottom: 1px solid var(--linie); }
+    .menue { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; }
     .menue nav { flex-direction: row; }
     .menue .unter, .menue .fuss { display: none !important; }
     .raster { grid-template-columns: minmax(0, 1fr); }

@@ -1,12 +1,12 @@
 ---
 name: start
 governance: gruen
-description: Startet den Arbeitstag von {{NAME}} im KI-Betriebssystem – legt das Tageslog an, zeigt die relevanten Aufgaben und stellt sicher, dass maximal 3 Aufgaben aktiv sind. Auslöser – "/start", "Start", "Guten Morgen", "los geht's", "was steht heute an".
+description: Startet den Arbeitstag im KI-Betriebssystem – legt das Tageslog an, zeigt die relevanten Aufgaben und stellt sicher, dass maximal 3 Aufgaben aktiv sind. Auslöser – "/start", "Start", "Guten Morgen", "los geht's", "was steht heute an".
 ---
 
 # Start – Tag beginnen
 
-Ziel: In unter einer Minute weiß {{NAME}}, woran er heute arbeitet. Kurz halten, nicht dozieren.
+Ziel: In unter einer Minute ist klar, woran heute gearbeitet wird. Kurz halten, nicht dozieren.
 
 ## 1. Datum bestimmen
 
@@ -47,7 +47,7 @@ Sonst anlegen nach diesem Schema:
 
 ## 4. Aufgaben prüfen (3er-Regel)
 
-- **Mehr als 3 aktiv** → {{NAME}} fragen, welche in „Als Nächstes" zurückwandern. Erst danach weiter.
+- **Mehr als 3 aktiv** → fragen, welche in „Als Nächstes" zurückwandern. Erst danach weiter.
 - **Weniger als 3 aktiv** → passende Kandidaten aus „Als Nächstes" und aus „Offen / Morgen" des letzten Logs vorschlagen (nicht selbst verschieben, erst nach OK).
 - Aufgaben mit Fälligkeit heute/überfällig oder in den nächsten 3 Tagen hervorheben.
 - Punkte aus „Offen / Morgen" des letzten Logs, die nicht in `Aufgaben.md` stehen, erwähnen und anbieten, sie aufzunehmen.

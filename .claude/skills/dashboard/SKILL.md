@@ -1,7 +1,7 @@
 ---
 name: dashboard
 governance: gruen
-description: Baut das Dashboard von {{NAME}} neu und öffnet es – liest Aufgaben, Ziele, Business-Wissen und das jüngste Tageslog, holt Zahlen aus angebundenen Systemen und schreibt Dashboard/dashboard.html. Liest nur, ändert nie etwas in angebundenen Systemen. Auslöser – "/dashboard", "Dashboard", "zeig mir mein Business", "wie steht das Business".
+description: Baut das eigene Dashboard neu und öffnet es – liest Aufgaben, Ziele, Business-Wissen und das jüngste Tageslog, holt Zahlen aus angebundenen Systemen und schreibt Dashboard/dashboard.html. Liest nur, ändert nie etwas in angebundenen Systemen. Auslöser – "/dashboard", "Dashboard", "zeig mir mein Business", "wie steht das Business".
 ---
 
 # Dashboard – neu bauen und öffnen

@@ -11,7 +11,7 @@ Ein neuer Hauptordner ist nur dann sinnvoll, wenn er eine **eigene Routing-Regel
 ## 1. Prüfen, ob es einen neuen Bereich braucht
 
 Routing-Tabelle in `CLAUDE.md` lesen. Passt das Thema in einen bestehenden Bereich (oft: Unterordner in `Projects/` oder `Content/`)?
-→ Dann das vorschlagen und begründen. Besteht {{NAME}} auf dem neuen Ordner: anlegen.
+→ Dann das vorschlagen und begründen. Besteht die Nutzerin oder der Nutzer auf dem neuen Ordner: anlegen.
 
 ## 2. Klären (eine Nachricht, nur was noch fehlt)
 

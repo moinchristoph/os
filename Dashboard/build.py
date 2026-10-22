@@ -165,13 +165,30 @@ def logo_html(einstellungen: dict) -> str:
     return f'<img class="logo" src="data:{typ};base64,{daten}" alt="{wortmarke}">'
 
 
+def offen_text(zeile: str) -> str:
+    """Macht aus einer Zeile mit OFFEN: einen lesbaren Punkt, mit dem Feld
+    davor als Zusammenhang (`**Preis:** OFFEN: …` → `Preis: …`)."""
+    text = zeile.strip()
+    if text.startswith("|"):
+        text = next(z for z in text.strip("|").split("|") if "OFFEN:" in z).strip()
+    text = re.sub(r"^([-*]|\d+\.)\s+(\[[ xX]\]\s+)?", "", text)
+    vor, frage = text.split("OFFEN:", 1)
+    frage = frage.strip() or "(ohne Beschreibung)"
+    fett = re.match(r"\*\*(.+?)\*\*", vor.strip())
+    feld = (fett.group(1) if fett else vor).strip(" :–-")
+    if not feld:
+        return inline(frage)
+    if len(feld) > 40:
+        feld = feld[:40].rsplit(" ", 1)[0] + " …"
+    return f"<strong>{inline(feld)}:</strong> {inline(frage)}"
+
+
 def offene_punkte(sichtbar: int = 8) -> str:
     punkte = []
-    for datei in sorted(BUSINESS.glob("*.md")):
+    for datei in sorted(BUSINESS.rglob("*.md")):
         for zeile in lesen(datei).splitlines():
             if "OFFEN:" in zeile:
-                frage = zeile.split("OFFEN:", 1)[1].strip(" |") or "(ohne Beschreibung)"
-                punkte.append(f'<li><span class="quelle">{html.escape(datei.stem)}</span> {inline(frage)}</li>')
+                punkte.append(f'<li><span class="quelle">{html.escape(datei.stem)}</span> <span>{offen_text(zeile)}</span></li>')
     if not punkte:
         return '<p class="leer">Keine offenen Punkte in Business/.</p>'
     rest = len(punkte) - sichtbar

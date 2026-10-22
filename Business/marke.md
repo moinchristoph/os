@@ -15,5 +15,5 @@ OFFEN: Markenkern in einem Satz
 - **Schreibweise der Wortmarke:**
 
 ## Sprachstile
-| Stil | Skill | Wann |
+| Stil | Datei | Wann |
 |---|---|---|

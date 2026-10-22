@@ -1,7 +1,7 @@
 ---
 name: feierabend
 governance: gruen
-description: Schließt den Arbeitstag von {{NAME}} im KI-Betriebssystem ab – sammelt alle Ergebnisse des Tages, trägt sie ins Tageslog ein, räumt Aufgaben.md auf und hält fest, was morgen ansteht. Auslöser – "/feierabend", "Feierabend", "Schluss für heute", "Tag abschließen".
+description: Schließt den Arbeitstag im KI-Betriebssystem ab – sammelt alle Ergebnisse des Tages, trägt sie ins Tageslog ein, räumt Aufgaben.md auf und hält fest, was morgen ansteht. Auslöser – "/feierabend", "Feierabend", "Schluss für heute", "Tag abschließen".
 ---
 
 # Feierabend – Tag abschließen
@@ -15,7 +15,7 @@ Existiert es nicht (Tag ohne `/start`), lege es nach dem Schema aus `.claude/ski
 
 ## 2. Ergebnisse des Tages einsammeln
 
-Aus **allen** Quellen – nicht nur aus dieser Sitzung, denn {{NAME}} arbeitet parallel in Claude Code und Cowork:
+Aus **allen** Quellen – nicht nur aus dieser Sitzung, denn oft wird parallel in Claude Code und Cowork gearbeitet:
 
 1. `## Verlauf` im heutigen Log (Einträge aus anderen Sitzungen).
 2. Diese Unterhaltung: was wurde erstellt, entschieden, erledigt?
@@ -24,7 +24,7 @@ Aus **allen** Quellen – nicht nur aus dieser Sitzung, denn {{NAME}} arbeitet p
    (falls keine Shell verfügbar: überspringen)
 4. `Aufgaben.md`: welche Aufgaben sind abgehakt?
 
-Dann {{NAME}} **einmal** fragen: „Gab es heute noch etwas außerhalb des Systems – Termine, Kundengespräche, Anfragen, Entscheidungen –, das ins Log soll?"
+Dann **einmal** fragen: „Gab es heute noch etwas außerhalb des Systems – Termine, Kundengespräche, Anfragen, Entscheidungen –, das ins Log soll?"
 
 ## 3. Feierabend-Abschnitt schreiben
 
@@ -50,13 +50,13 @@ Den Abschnitt `## Feierabend` im heutigen Log ersetzen durch:
 Regeln:
 - Konkrete Ergebnisse statt Tätigkeiten („Angebotsseite fertig getextet", nicht „an Website gearbeitet").
 - Leere Unterabschnitte mit „–" füllen, nicht weglassen – die Rückblick-Skills verlassen sich auf die Struktur.
-- Nichts erfinden. Was nicht belegt ist, bei {{NAME}} nachfragen oder weglassen.
+- Nichts erfinden. Was nicht belegt ist, nachfragen oder weglassen.
 
 ## 4. Aufgaben.md aufräumen
 
 - Abgehakte Aufgaben löschen (sie stehen jetzt unter „Erledigt" im Log).
 - Neue offene Punkte nach „Als Nächstes" oder „Warten auf" eintragen.
-- Prüfen: maximal 3 unter „Aktiv". Wenn ein Platz frei geworden ist, **nicht** automatisch auffüllen – das entscheidet {{NAME}} morgen bei `/start`.
+- Prüfen: maximal 3 unter „Aktiv". Wenn ein Platz frei geworden ist, **nicht** automatisch auffüllen – das wird morgen bei `/start` entschieden.
 
 ## 5. Merkenswertes abfangen
 

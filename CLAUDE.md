@@ -19,7 +19,7 @@ Alles ist reines Markdown, damit beide Tools identisch damit arbeiten.
 - **Tageslogs sind append-only:** In `Logs/YYYY/YYYY-MM-DD.md` nur Zeilen ergänzen, nie bestehende Einträge löschen oder umschreiben.
 - **Neue Dateien:** nach der Routing-Tabelle ablegen und in der Übersicht des Bereichs eintragen (`README.md` des Ordners, bei Memory `Memory/INDEX.md`).
 - Bevor du inhaltlich arbeitest (Texte, Angebote, Strategie), lies den relevanten Kontext aus `Business/`. Rate nie, was dort stehen könnte.
-- Texte schreiben → immer zuerst den passenden Sprachstil-Skill laden (`.claude/skills/sprachstil-*`, Übersicht in `Business/marke.md`).
+- Texte schreiben → immer zuerst den Skill `sprachstil` laden. Er nimmt den passenden Stil aus `Business/sprachstile/` (Übersicht in `Business/marke.md`).
 - Dateinamen: klein-mit-bindestrichen, ohne Umlaute (`ae`, `oe`, `ue`, `ss`), ohne Sonderzeichen. Datierte Dateien beginnen mit `YYYY-MM-DD-`.
 - Kerndokumente in `Business/` werden **aktualisiert, nicht dupliziert**. Keine `-v2`, `-neu`, `-final`-Dateien.
 - Maximal **3 aktive Aufgaben** gleichzeitig (siehe `Aufgaben.md`). Soll eine vierte starten, frag, welche dafür pausiert oder abgeschlossen wird.
@@ -70,18 +70,18 @@ Diese Regeln sind Anweisungen, keine technische Absicherung. Durchgesetzt wird �
 ## Routing – was gehört wohin
 
 Jede neue Datei gehört in genau einen Bereich. Lege **nie** Dateien im Hauptordner ab
-(Ausnahmen: `CLAUDE.md`, `Aufgaben.md`, `README.md`, `DESIGN.md`). Wenn unklar ist, wohin etwas gehört: kurz nachfragen.
+(Ausnahmen: `CLAUDE.md`, `Aufgaben.md`, `README.md`, `DESIGN.md`, `PRODUCT.md`, die letzten beiden liest Impeccable). Wenn unklar ist, wohin etwas gehört: kurz nachfragen.
 
 | Ordner | Gehört hinein | Gehört NICHT hinein |
 |---|---|---|
-| `Business/` | Strategisches: Business-Profil, Ziele, Zielgruppen, Angebote/Preise, Positionierung, Marke, Kundenstimmen | Operatives (Kundenkommunikation, Rechnungen), einzelne Posts |
+| `Business/` | Strategisches: Business-Profil, Ziele, Zielgruppen, Angebote/Preise, Positionierung, Marke, Sprachstile (`Business/sprachstile/`), Kundenstimmen | Operatives (Kundenkommunikation, Rechnungen), einzelne Posts |
 | `Projects/` | Zeitlich begrenzte Vorhaben mit Anfang und Ende: Launches, Aktionen, Kampagnen, Kooperationen. Ein Unterordner pro Projekt mit `PROJEKT.md` | Daueraufgaben, das Dashboard, fertige Website-Inhalte |
 | `Content/` | Operatives Marketing: Redaktionsplan, Posts, Newsletter, Anzeigentexte, Content-Serien | Content-*Strategie* und Zielgruppen (→ `Business/`) |
 | `Kunden/` | Operatives pro Kund:in: Vorlagen, anonymes Anfragen-Log | Preislogik (→ `Business/angebote.md`) |
 | `Website/` | Alles, was auf der Website live ist oder live gehen soll; Code in `Website/site/` | Landingpage-Entwürfe, die noch Projekt sind (→ `Projects/`) |
 | `Dashboard/` | Das eigene Dashboard: Vorlage, Build-Skript, Datenquellen | Rohdaten mit Personenbezug (bleiben in `Dashboard/daten/`, nicht versioniert) |
 | `Memory/` | Gemerktes Kontextwissen – wird nur über den Skill `merken` geschrieben | Alles andere |
-| `Logs/` | Tageslogs und Rückblicke – werden nur über die Skills `start`, `feierabend`, `wochenrueckblick`, `monatsrueckblick` geschrieben | Alles andere |
+| `Logs/` | Tageslogs und Rückblicke – werden nur über die Skills `start`, `feierabend`, `wochenrueckblick`, `monatsrueckblick` geschrieben, dazu `setup-status.md` vom Skill `setup` | Alles andere |
 
 Faustregeln: Strategisch & langlebig → `Business/`. Operativ & wiederkehrend → `Content/`. Einmalig mit Enddatum → `Projects/`.
 Das Ergebnis eines Projekts, das dauerhaft gebraucht wird, wandert bei Projektabschluss in den Zielbereich.
@@ -100,6 +100,7 @@ Die Anleitung liegt jeweils in `.claude/skills/<name>/SKILL.md`. Falls ein Skill
 | `/wochenrueckblick`, „Wochenrückblick" | `.claude/skills/wochenrueckblick/SKILL.md` | Rückblick auf eine Woche |
 | `/monatsrueckblick`, „Monatsrückblick" | `.claude/skills/monatsrueckblick/SKILL.md` | Rückblick auf einen Monat, Ziele aktualisieren |
 | `/merken`, „Merk dir das" | `.claude/skills/merken/SKILL.md` | Kontextwissen in `Memory/` speichern |
+| `/sprachstil`, „schreib einen Post", „neuer Sprachstil" | `.claude/skills/sprachstil/SKILL.md` | Texte im eigenen Ton, Stile in `Business/sprachstile/` |
 | `/neuer-ordner`, „Leg einen neuen Bereich an" | `.claude/skills/neuer-ordner/SKILL.md` | Neuen Hauptordner inkl. Routing-Regel anlegen |
 | `/neues-projekt`, „Neues Projekt" | `.claude/skills/neues-projekt/SKILL.md` | Projekt aus `Projects/_Vorlage/` anlegen |
 | `/dashboard`, „Dashboard" | `.claude/skills/dashboard/SKILL.md` | Dashboard neu bauen und öffnen |

@@ -23,7 +23,7 @@ Die Vorlage ist leer. Beim ersten Start richtet `/setup` sie mit dir ein.
 | Git | Versionen und Backup | macOS: `xcode-select --install` |
 | Node.js (nur für eine eigene Website) | Astro | [nodejs.org](https://nodejs.org) |
 
-Installiere Impeccable nach der Anleitung in der Impeccable-Dokumentation, bevor du `/setup` startest. Das Setup prüft das und hält sonst vor dem Brand Design an.
+Installiere Impeccable nach der Anleitung in der Impeccable-Dokumentation, bevor du `/setup` startest. Wenn dir das zu technisch ist, lass dir einmal von jemandem helfen, es dauert wenige Minuten. Das Setup prüft das und macht ohne Impeccable zuerst alles andere, nur Brand Design und Dashboard warten.
 
 ## So startest du
 
@@ -33,6 +33,8 @@ Installiere Impeccable nach der Anleitung in der Impeccable-Dokumentation, bevor
 
 Das Setup dauert 60 bis 90 Minuten und läuft in 8 Etappen. Du kannst jederzeit Pause machen, beim nächsten `/setup` geht es an derselben Stelle weiter.
 
+Einmal am Anfang fragt Claude Code in einem kleinen Fenster, ob es die Datei `CLAUDE.md` ändern darf. Dort wird dein Name eingetragen. Klick auf „Erlauben". Das Fenster ist ein Schutz, damit niemand unbemerkt die Regeln ändert.
+
 | Etappe | Was passiert |
 |---|---|
 | 0 Vorprüfung | Impeccable, Python, Git da? |
@@ -40,7 +42,7 @@ Das Setup dauert 60 bis 90 Minuten und läuft in 8 Etappen. Du kannst jederzeit 
 | 2 Produkte und Leistungen | Pakete, Stunden- oder Tagessätze, Ablauf, Extras |
 | 3 Zielkunden | Für wen genau, Auslöser, Einwände, wo du sie erreichst, wer nicht passt |
 | 4 Brand Design | Website, Screenshots, Karussells und Posts teilen, Impeccable leitet dein Design-System ab, Logo oder Wortmarke |
-| 5 Sprachstile | Welche Kanäle (Website DE/EN, Instagram, LinkedIn, Mails …), je Kanal ein eigener Stil aus deinen Texten |
+| 5 Sprachstile | Welche Kanäle (Website DE/EN, Instagram, LinkedIn, Mails …), je Kanal ein eigener Stil aus deinen Texten, abgelegt in `Business/sprachstile/` |
 | 6 Systeme | Welche Tools du später anbinden willst |
 | 7 Dashboard | Erstes Dashboard in deiner Marke, Menü links, Logo oben links, Reiter Übersicht und Wissen |
 | 8 Abschluss | Git, offene Punkte, erste Aufgabe, erster `/start` |
@@ -54,6 +56,7 @@ Das Setup dauert 60 bis 90 Minuten und läuft in 8 Etappen. Du kannst jederzeit 
 | `/wochenrueckblick` | Woche auswerten, Fokus für die nächste |
 | `/monatsrueckblick` | Monat auswerten, Ziele aktualisieren |
 | `/merken` | Wissen dauerhaft speichern |
+| `/sprachstil` | Texte in deinem Ton schreiben, neuen Stil anlegen |
 | `/neues-projekt` | Projekt mit Ziel und Frist anlegen |
 | `/neuer-ordner` | Neuen Bereich mit Regel anlegen |
 | `/dashboard` | Dashboard neu bauen und öffnen |

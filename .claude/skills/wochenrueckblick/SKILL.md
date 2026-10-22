@@ -1,7 +1,7 @@
 ---
 name: wochenrueckblick
 governance: gruen
-description: Erstellt den Wochenrückblick von {{NAME}} im KI-Betriebssystem aus den Tageslogs – Ergebnisse, Zielfortschritt, Learnings und Fokus für die nächste Woche. Auslöser – "/wochenrueckblick", "Wochenrückblick", "wie war meine Woche", "Woche abschließen". Optionales Argument – Kalenderwoche, z. B. "KW38".
+description: Erstellt den Wochenrückblick im KI-Betriebssystem aus den Tageslogs – Ergebnisse, Zielfortschritt, Learnings und Fokus für die nächste Woche. Auslöser – "/wochenrueckblick", "Wochenrückblick", "wie war meine Woche", "Woche abschließen". Optionales Argument – Kalenderwoche, z. B. "KW38".
 ---
 
 # Wochenrückblick
@@ -13,7 +13,7 @@ description: Erstellt den Wochenrückblick von {{NAME}} im KI-Betriebssystem aus
 - Sonst: Donnerstag–Sonntag → **laufende** Woche. Montag–Mittwoch → **Vorwoche**.
 - Sag in einem Satz, welche Woche du auswertest (KW + Datumsbereich Mo–So).
 
-Zieldatei: `Logs/Rueckblicke/YYYY-KWXX.md` (ISO-Woche, zweistellig). Existiert sie schon → {{NAME}} fragen: ergänzen oder neu schreiben?
+Zieldatei: `Logs/Rueckblicke/YYYY-KWXX.md` (ISO-Woche, zweistellig). Existiert sie schon → fragen: ergänzen oder neu schreiben?
 
 ## 2. Material lesen
 
@@ -70,7 +70,7 @@ Stell diese drei Fragen **in einer Nachricht** und warte auf die Antwort:
 ```
 
 Regeln:
-- Nur belegen, was in Logs steht oder {{NAME}} gesagt hat. Leere Bereiche mit „–".
+- Nur belegen, was in Logs steht oder im Gespräch gesagt wurde. Leere Bereiche mit „–".
 - Ehrlich sein: Wenn die Woche nichts auf die Ziele eingezahlt hat, steht das so drin.
 - Muster benennen (z. B. „Content rutscht seit 3 Wochen nach hinten").
 

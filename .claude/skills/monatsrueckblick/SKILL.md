@@ -1,7 +1,7 @@
 ---
 name: monatsrueckblick
 governance: gruen
-description: Erstellt den Monatsrückblick von {{NAME}} im KI-Betriebssystem aus Wochenrückblicken und Tageslogs, prüft den Fortschritt auf die Ziele und aktualisiert Business/ziele.md. Auslöser – "/monatsrueckblick", "Monatsrückblick", "Monat abschließen", "wie war mein Monat". Optionales Argument – Monat, z. B. "2026-08" oder "August".
+description: Erstellt den Monatsrückblick im KI-Betriebssystem aus Wochenrückblicken und Tageslogs, prüft den Fortschritt auf die Ziele und aktualisiert Business/ziele.md. Auslöser – "/monatsrueckblick", "Monatsrückblick", "Monat abschließen", "wie war mein Monat". Optionales Argument – Monat, z. B. "2026-08" oder "August".
 ---
 
 # Monatsrückblick
@@ -27,7 +27,7 @@ Zieldatei: `Logs/Rueckblicke/YYYY-MM-monat.md`. Existiert sie schon → fragen: 
 
 ## 3. Zahlen & Reflexion abfragen
 
-Frag **in einer Nachricht** ({{NAME}} darf Punkte überspringen):
+Frag **in einer Nachricht** (Punkte dürfen übersprungen werden):
 1. Zahlen des Monats: Anfragen, Aufträge, Umsatz – was du parat hast.
 2. Worauf bist du diesen Monat stolz?
 3. Was würdest du rückblickend anders machen?
@@ -77,7 +77,7 @@ Schlage konkrete Änderungen an `Business/ziele.md` vor (als Vorher/Nachher-List
 - Monatsfokus auf den neuen Monat setzen
 - erreichte Ziele nach „Erreicht" verschieben, überholte Ziele streichen oder anpassen
 
-Erst nach {{NAME}}s OK schreiben. Dabei „Zuletzt aktualisiert" auf heute setzen und eine Zeile im Änderungsverlauf der Datei ergänzen.
+Erst nach OK schreiben. Dabei „Zuletzt aktualisiert" auf heute setzen und eine Zeile im Änderungsverlauf der Datei ergänzen.
 
 ## 6. Hygiene – jeweils nur nach OK
 
