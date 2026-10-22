@@ -18,12 +18,25 @@ Die Vorlage ist leer. Beim ersten Start richtet `/setup` sie mit dir ein.
 | Was | Wofür | Wo |
 |---|---|---|
 | Claude Code oder Claude Cowork | Damit arbeitest du im Ordner | [claude.com](https://claude.com) |
-| Impeccable (Skill) | Brand Design, Dashboard, Website | [impeccable.style/docs](https://impeccable.style/docs/), Quelle: [github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
+| Impeccable (Plugin) | Brand Design, Dashboard, Website | Anleitung unten, Quelle: [github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
 | Python 3 | Dashboard bauen | auf dem Mac meist vorhanden, sonst [python.org](https://www.python.org) |
 | Git | Versionen und Backup | macOS: `xcode-select --install` |
 | Node.js (nur für eine eigene Website) | Astro | [nodejs.org](https://nodejs.org) |
 
-Installiere Impeccable nach der Anleitung in der Impeccable-Dokumentation, bevor du `/setup` startest. Wenn dir das zu technisch ist, lass dir einmal von jemandem helfen, es dauert wenige Minuten. Das Setup prüft das und macht ohne Impeccable zuerst alles andere, nur Brand Design und Dashboard warten.
+### Impeccable installieren (2 Minuten, ohne Terminal)
+
+In Claude Code, direkt im Chat:
+
+1. Diese Zeile eingeben und abschicken:
+   ```
+   /plugin marketplace add pbakaus/impeccable
+   ```
+2. `/plugin` eingeben, auf **Discover** gehen und **Impeccable** installieren.
+3. Claude Code einmal neu starten (Fenster schließen und den Ordner wieder öffnen).
+
+Alternativ im Terminal, im Ordner dieses Systems: `npx impeccable install` (braucht Node.js). Alle Wege stehen auf [impeccable.style](https://impeccable.style/#downloads).
+
+Das Setup prüft, ob Impeccable da ist. Fehlt es, macht `/setup` zuerst alles andere, nur Brand Design und Dashboard warten.
 
 ## So startest du
 

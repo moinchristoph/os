@@ -55,12 +55,17 @@ Ohne Rückfrage prüfen und das Ergebnis in einer kurzen Liste zeigen:
 
 | Prüfung | Wie | Wenn es fehlt |
 |---|---|---|
-| Impeccable installiert | Gibt es `.claude/skills/impeccable/SKILL.md` im Projekt oder `~/.claude/skills/impeccable/SKILL.md`? | Installationsweg aus `README.md`, Abschnitt „Voraussetzungen", zeigen. Phasen 1–3 gehen trotzdem, **vor Phase 4 stoppen**, bis Impeccable da ist. |
+| Impeccable installiert | Steht ein Skill `impeccable` in deiner Liste verfügbarer Skills (auch als Plugin, z. B. `impeccable:impeccable`)? Sonst nachsehen: `.claude/skills/impeccable/`, `~/.claude/skills/impeccable/`, `~/.claude/plugins/` (Ordner mit `impeccable`). | Installationsweg aus `README.md`, Abschnitt „Impeccable installieren", zeigen. Phasen 1–3 gehen trotzdem, **vor Phase 4 stoppen**, bis Impeccable da ist. |
 | Git | `git --version` | Hinweis zur Installation (macOS: `xcode-select --install`). Nicht blockierend, nur Phase 8 braucht es. |
 | Python 3 | `python3 --version` | Hinweis zur Installation. Vor Phase 7 nötig. |
 | Umgebung | Gibt es eine Shell? | In Cowork ohne Shell: Prüfungen 2–3 überspringen, Dashboard in Phase 7 nur als Vorlage vorbereiten und sagen, dass der Build in Claude Code läuft. |
 
-Impeccable wird nicht von Claude installiert. Nur den Weg zeigen, die Person installiert selbst und sagt Bescheid.
+Impeccable wird nicht von Claude installiert. Den Weg zeigen, die Person installiert selbst und sagt Bescheid. In Claude Code ist das der einfachste Weg:
+1. `/plugin marketplace add pbakaus/impeccable` im Chat eingeben und abschicken.
+2. `/plugin` eingeben, **Discover** wählen, **Impeccable** installieren.
+3. Claude Code neu starten, dann `/setup` eingeben. Das Setup macht an der gespeicherten Stelle weiter.
+
+Vorher den Stand in `Logs/setup-status.md` speichern, damit der Neustart nichts verliert. `/impeccable init` und `/impeccable hooks on` aus der Impeccable-Anleitung sind nicht nötig, `PRODUCT.md` und `DESIGN.md` legt das Setup selbst an. In Cowork gibt es keinen `/plugin`-Befehl: dort Brand Design und Dashboard auf eine Sitzung in Claude Code verschieben.
 
 ## Phase 1 – Business und Stand (10 Minuten)
 
