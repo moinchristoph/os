@@ -103,4 +103,4 @@ Logs/            Tageslogs und Rückblicke
 
 ## Lizenz
 
-CC BY-NC-SA 4.0, siehe `LICENSE`. Nutzen und anpassen für dein eigenes Business ist frei. Weiterverkaufen oder als eigenes Produkt anbieten ist nicht erlaubt.
+CC BY-NC-SA 4.0, siehe `LICENSE` (offizielle englische Fassung). Deutsche Fassung: [creativecommons.org/licenses/by-nc-sa/4.0/legalcode.de](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.de). Nutzen und anpassen für dein eigenes Business ist frei. Weiterverkaufen oder als eigenes Produkt anbieten ist nicht erlaubt.
